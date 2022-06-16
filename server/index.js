@@ -1,5 +1,6 @@
 require('dotenv').config()
 const colors = require('colors')
+const cors = require('cors')
 const express = require('express')
 const schema = require('./schema/schema.js')
 const { graphqlHTTP } = require('express-graphql')
@@ -9,7 +10,7 @@ const app = express() //initiliaze express
 
 //Connect MongooseDB
 connectDB()
-
+app.use(cors())
 app.use(
   '/graphql',
   graphqlHTTP({
