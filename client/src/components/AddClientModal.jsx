@@ -9,17 +9,17 @@ export default function AddClientModal() {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
 
-  const [addClient] = useMutation(ADD_CLIENT,{
-    variables:{name,  email, phone},
-    refetchQueries:[{query: GET_CLIENTS}]
+  const [addClient] = useMutation(ADD_CLIENT, {
+    variables: { name, email, phone },
+    refetchQueries: [{ query: GET_CLIENTS }],
   })
- 
+
   const onSubmit = (e) => {
     e.preventDefault()
-    if(name==='' || email==='' || phone===''){
+    if (name === '' || email === '' || phone === '') {
       alert('Please fill all the fields')
     }
-    addClient(name,email,phone)
+    addClient(name, email, phone)
     setName('')
     setEmail('')
     setPhone('')
